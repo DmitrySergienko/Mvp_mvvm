@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Mvp_mvvm</string>
+    <string name="enterLogin">Login</string>
+    <string name="enterPassword">Password</string>
+    <string name="enter">Enter</string>
+    <string name="show">Show</string>
+    <color name="loadingBackground">#80FFFFFF</color>
 </resources>
