@@ -26,9 +26,10 @@ class LoginPresenter : LoginContract.Presenter {
         Thread {
             sleep(1000)
             uiHandler.post {
-                view?.hideProgress()
+                view?.showProgress()
                 if (checkCredentials(login, password)) {
                     view?.setSuccess()
+                    view?.hideProgress()
 
                 } else {
                     view?.setError(Constants.WRONG_PASSWORD)

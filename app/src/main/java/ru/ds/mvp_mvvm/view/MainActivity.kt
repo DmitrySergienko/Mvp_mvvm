@@ -1,17 +1,17 @@
 package ru.ds.mvp_mvvm.view
 
 import android.app.Activity
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import ru.ds.mvp_mvvm.model.LoginContract
-import ru.ds.mvp_mvvm.presenter.LoginPresenter
+import androidx.appcompat.app.AppCompatActivity
 import ru.ds.mvp_mvvm.R
 import ru.ds.mvp_mvvm.databinding.ActivityMainBinding
+import ru.ds.mvp_mvvm.model.LoginContract
+import ru.ds.mvp_mvvm.presenter.LoginPresenter
 import ru.ds.mvp_mvvm.utils.Constants
 
 class MainActivity : AppCompatActivity(), LoginContract.View {
@@ -26,15 +26,19 @@ class MainActivity : AppCompatActivity(), LoginContract.View {
         setContentView(binding.root)
         presenter = restorePresenter()
         presenter?.onAttach(this)
-
+//show and hide symbols
         binding.showHideBtn.setOnClickListener {
-            if(binding.showHideBtn.text.toString().equals("Show")){
-                binding.passwordEditText.transformationMethod = HideReturnsTransformationMethod.getInstance()
-                binding.loginEditText.transformationMethod = HideReturnsTransformationMethod.getInstance()
+            if (binding.showHideBtn.text.toString().equals("Show")) {
+                binding.passwordEditText.transformationMethod =
+                    HideReturnsTransformationMethod.getInstance()
+                binding.loginEditText.transformationMethod =
+                    HideReturnsTransformationMethod.getInstance()
                 binding.showHideBtn.text = Constants.HIDE_SYMBOL
-            } else{
-                binding.passwordEditText.transformationMethod = PasswordTransformationMethod.getInstance()
-                binding.loginEditText.transformationMethod = PasswordTransformationMethod.getInstance()
+            } else {
+                binding.passwordEditText.transformationMethod =
+                    PasswordTransformationMethod.getInstance()
+                binding.loginEditText.transformationMethod =
+                    PasswordTransformationMethod.getInstance()
                 binding.showHideBtn.text = Constants.SHOW_SYMBOL
             }
 
@@ -73,10 +77,12 @@ class MainActivity : AppCompatActivity(), LoginContract.View {
     override fun showProgress() {
         binding.loginButton.isEnabled = false
         hideKeyboard(this)
+        binding.progressLoadingLayout.visibility = View.VISIBLE
     }
 
     override fun hideProgress() {
         binding.loginButton.isEnabled = true
+        binding.progressLoadingLayout.visibility = View.GONE
     }
 
     private fun hideKeyboard(activity: Activity) {
