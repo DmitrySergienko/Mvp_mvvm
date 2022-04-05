@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Mvp_mvvm</string>
-    <string name="enterLogin">Введите логин!</string>
-    <string name="enterPassword">Введите пароль!</string>
-    <string name="enter">Войти</string>
+    <string name="enterLogin">Login</string>
+    <string name="enterPassword">Password</string>
+    <string name="enter">Enter</string>
+    <string name="show">Show</string>
 </resources>

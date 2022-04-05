@@ -21,34 +21,47 @@
 
 
         <EditText
-            android:id="@+id/login_edit_text"
+            android:id="@+id/loginEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/enterLogin"
             android:singleLine="true"
             android:textAlignment="center"
+            android:inputType="textPassword"
             app:layout_constraintBottom_toTopOf="@+id/guidelineThree"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guidelineThree" />
 
         <EditText
-            android:id="@+id/password_edit_text"
+            android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/marginTopTextView"
             android:hint="@string/enterPassword"
             android:singleLine="true"
+            android:inputType="textPassword"
             android:textAlignment="center"
             app:layout_anchor="@+id/constraintLayout"
             app:layout_anchorGravity="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_edit_text" />
+            app:layout_constraintTop_toBottomOf="@+id/loginEditText" />
 
         <Button
-            android:id="@+id/login_button"
+            android:id="@+id/showHideBtn"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show"
+            android:layout_marginTop="@dimen/marginTopTextView"
+            android:layout_marginEnd="@dimen/marginTopTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/loginButton"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -56,7 +69,7 @@
             android:text="@string/enter"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/password_edit_text" />
+            app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,6 @@
-package ru.ds.mvp_mvvm
+package ru.ds.mvp_mvvm.model
 
 import androidx.annotation.MainThread
-import java.util.logging.Handler
 
 class LoginContract {
 

@@ -1,8 +1,10 @@
-package ru.ds.mvp_mvvm
+package ru.ds.mvp_mvvm.presenter
 
 import android.os.Handler
 import android.os.Looper
 import androidx.annotation.MainThread
+import ru.ds.mvp_mvvm.model.LoginContract
+import ru.ds.mvp_mvvm.utils.Constants
 import java.lang.Thread.sleep
 
 
@@ -29,7 +31,7 @@ class LoginPresenter : LoginContract.Presenter {
                     view?.setSuccess()
 
                 } else {
-                    view?.setError("Wrong Password")
+                    view?.setError(Constants.WRONG_PASSWORD)
 
                 }
             }
