@@ -28,12 +28,14 @@ class MainActivity : AppCompatActivity(), LoginContract.View {
             )
         }
     }
-//для сохранения состояния объекта (в данном случае это Presenter()) метод возвращает его последний instance
+
+    //для сохранения состояния объекта (в данном случае это Presenter()) метод возвращает его последний instance
     private fun restorePresenter(): LoginPresenter {
         val presenter = lastCustomNonConfigurationInstance as? LoginPresenter
         return presenter ?: LoginPresenter()
     }
-//для сохранения состояния объекта (в данном случае это Presenter()) он записывается этим методом
+
+    //для сохранения состояния объекта (в данном случае это Presenter()) он записывается этим методом
     override fun onRetainCustomNonConfigurationInstance(): Any? {
         return presenter
     }
@@ -42,11 +44,11 @@ class MainActivity : AppCompatActivity(), LoginContract.View {
         binding.loginButton.visibility = View.GONE
         binding.loginEditText.visibility = View.GONE
         binding.passwordEditText.visibility = View.GONE
-        binding.root.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDarkGrey))
+        binding.root.setBackgroundResource(R.drawable.ic_open_access)
     }
 
     override fun setError(error: String) {
-        Toast.makeText(this,"Error $error",Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "Error!!! $error", Toast.LENGTH_LONG).show()
     }
 
     override fun showProgress() {
