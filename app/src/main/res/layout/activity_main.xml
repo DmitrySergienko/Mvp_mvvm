@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -25,9 +24,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/enterLogin"
+            android:inputType="textPassword"
             android:singleLine="true"
             android:textAlignment="center"
-            android:inputType="textPassword"
             app:layout_constraintBottom_toTopOf="@+id/guidelineThree"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,8 +38,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/marginTopTextView"
             android:hint="@string/enterPassword"
-            android:singleLine="true"
             android:inputType="textPassword"
+            android:singleLine="true"
             android:textAlignment="center"
             app:layout_anchor="@+id/constraintLayout"
             app:layout_anchorGravity="center"
@@ -54,9 +53,9 @@
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Show"
             android:layout_marginTop="@dimen/marginTopTextView"
             android:layout_marginEnd="@dimen/marginTopTextView"
+            android:text="Show"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -71,7 +70,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
 
+        <FrameLayout
+            android:id="@+id/progressLoadingLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/loadingBackground"
+            android:visibility="gone"
+            app:layout_anchorGravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
+            <ProgressBar
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+        </FrameLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

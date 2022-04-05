@@ -13,6 +13,8 @@ class LoginContract {
         fun showProgress()
         @MainThread
         fun hideProgress()
+        @MainThread
+        fun showSymbols()
 
     }
 
