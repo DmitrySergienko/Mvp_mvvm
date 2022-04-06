@@ -4,7 +4,7 @@ import android.os.Handler
 import ru.ds.mvp_mvvm.domain.LoginApp
 import ru.ds.mvp_mvvm.domain.LoginUseCase
 
-class LoginUseCaseImpl(
+class LoginUsecaseImpl(
     private val api: LoginApp,
     private val uiHandler: Handler
 ) : LoginUseCase {

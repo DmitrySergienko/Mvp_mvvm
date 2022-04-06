@@ -1,10 +1,6 @@
 package ru.ds.mvp_mvvm.ui.login
 
-import android.os.Handler
-import android.os.Looper
 import androidx.annotation.MainThread
-import ru.ds.mvp_mvvm.data.WebLoginApiImpl
-import ru.ds.mvp_mvvm.domain.LoginApp
 import ru.ds.mvp_mvvm.domain.LoginUseCase
 import ru.ds.mvp_mvvm.utils.Constants
 

@@ -1,7 +1,6 @@
 package ru.ds.mvp_mvvm.ui.login
 
 import androidx.annotation.MainThread
-import androidx.annotation.WorkerThread
 
 class LoginContract {
 
