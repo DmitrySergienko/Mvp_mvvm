@@ -1,15 +1,13 @@
-package ru.ds.mvp_mvvm.view
+package ru.ds.mvp_mvvm.ui.login
 
 import android.app.Activity
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import ru.ds.mvp_mvvm.model.LoginContract
-import ru.ds.mvp_mvvm.presenter.LoginPresenter
+import androidx.appcompat.app.AppCompatActivity
 import ru.ds.mvp_mvvm.R
 import ru.ds.mvp_mvvm.databinding.ActivityMainBinding
 import ru.ds.mvp_mvvm.utils.Constants
@@ -75,13 +73,9 @@ class MainActivity : AppCompatActivity(), LoginContract.View {
             if (binding.showHideBtn.text.toString().equals("Show")) {
                 binding.passwordEditText.transformationMethod =
                     HideReturnsTransformationMethod.getInstance()
-                binding.loginEditText.transformationMethod =
-                    HideReturnsTransformationMethod.getInstance()
                 binding.showHideBtn.text = Constants.HIDE_SYMBOL
             } else {
                 binding.passwordEditText.transformationMethod =
-                    PasswordTransformationMethod.getInstance()
-                binding.loginEditText.transformationMethod =
                     PasswordTransformationMethod.getInstance()
                 binding.showHideBtn.text = Constants.SHOW_SYMBOL
             }

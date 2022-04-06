@@ -1,4 +1,4 @@
-package ru.ds.mvp_mvvm.model
+package ru.ds.mvp_mvvm.ui.login
 
 import androidx.annotation.MainThread
 

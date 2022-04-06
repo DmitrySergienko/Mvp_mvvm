@@ -1,17 +1,20 @@
-package ru.ds.mvp_mvvm.presenter
+package ru.ds.mvp_mvvm.ui.login
 
 import android.os.Handler
 import android.os.Looper
 import androidx.annotation.MainThread
-import ru.ds.mvp_mvvm.model.LoginContract
+import ru.ds.mvp_mvvm.data.WebLoginApiImpl
+import ru.ds.mvp_mvvm.domain.LoginApp
 import ru.ds.mvp_mvvm.utils.Constants
-import java.lang.Thread.sleep
 
 
 class LoginPresenter : LoginContract.Presenter {
 
     private var view: LoginContract.View? = null
     private val uiHandler = Handler(Looper.getMainLooper())
+    private val isSuccess: Boolean = true
+    private val error: String =""
+    private val api: LoginApp = WebLoginApiImpl()
 
 
     @MainThread
@@ -24,10 +27,11 @@ class LoginPresenter : LoginContract.Presenter {
     override fun onLogin(login: String, password: String) {
         view?.showProgress()
         Thread {
-            sleep(1000)
+            val success = api.login(login,password)
+
             uiHandler.post {
                 view?.showProgress()
-                if (checkCredentials(login, password)) {
+                if (success) {
                     view?.setSuccess()
                     view?.hideProgress()
 
