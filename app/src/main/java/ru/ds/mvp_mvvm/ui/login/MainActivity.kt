@@ -2,14 +2,20 @@ package ru.ds.mvp_mvvm.ui.login
 
 import android.app.Activity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import ru.ds.mvp_mvvm.App
 import ru.ds.mvp_mvvm.R
+import ru.ds.mvp_mvvm.app
+import ru.ds.mvp_mvvm.data.LoginUseCaseImpl
 import ru.ds.mvp_mvvm.databinding.ActivityMainBinding
+import ru.ds.mvp_mvvm.domain.LoginUseCase
 import ru.ds.mvp_mvvm.utils.Constants
 
 class MainActivity : AppCompatActivity(), LoginContract.View {
@@ -38,7 +44,8 @@ class MainActivity : AppCompatActivity(), LoginContract.View {
     //для сохранения состояния объекта (в данном случае это Presenter()) метод возвращает его последний instance
     private fun restorePresenter(): LoginPresenter {
         val presenter = lastCustomNonConfigurationInstance as? LoginPresenter
-        return presenter ?: LoginPresenter()
+
+        return presenter ?: LoginPresenter(app.loginUseCase)
     }
 
     //для сохранения состояния объекта (в данном случае это Presenter()) он записывается этим методом

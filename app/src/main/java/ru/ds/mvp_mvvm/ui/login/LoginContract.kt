@@ -1,6 +1,7 @@
 package ru.ds.mvp_mvvm.ui.login
 
 import androidx.annotation.MainThread
+import androidx.annotation.WorkerThread
 
 class LoginContract {
 
@@ -19,13 +20,16 @@ class LoginContract {
     }
 
     interface Presenter {
+        @MainThread
         fun onAttach(view: View)
+        @MainThread
         fun onLogin(login: String, password: String)
+        @MainThread
         fun onCredentialsChanged()
+        @MainThread
         private fun checkCredentials(login: String, password: String): Boolean {
             return login == password
         }
-
 
     }
 }
