@@ -1,6 +1,7 @@
 package ru.ds.mvp_mvvm.ui.login
 
 import androidx.annotation.MainThread
+import ru.ds.mvp_mvvm.utils.Publisher
 
 /**
  * MVP  - Model View Presenter
@@ -36,9 +37,9 @@ interface LoginContract {
 
     interface ViewModel {
 
-        var shouldShowProgress: Boolean
-        var isSuccess: Boolean
-        var errorText: String?
+        val shouldShowProgress: Publisher<Boolean>
+        val isSuccess: Publisher<Boolean>
+        val errorText: Publisher<String?>
 
         @MainThread
         fun onLogin(login: String, password: String)
