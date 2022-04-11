@@ -2,7 +2,6 @@ package ru.ds.mvp_mvvm.utils
 
 import android.os.Handler
 
-
 //typealias это подставновка в коде для удобства (встречает Subscriber<E> подставляет Unit
 //private typealias Subscriber<E> = Pair<Handler, (E?) -> Unit>
 
@@ -19,7 +18,7 @@ public class Subscriber<E>(
 
 class Publisher<E> {
 
-    // так как подписчивов может быть несколько делаем список подписчиков
+    // так как подписчивов может быть несколько, делаем список подписчиков
     //используем Set чтобы нельзя было добавть один подписчик два раза
     private val subscribers: MutableSet<Subscriber<E?>> = mutableSetOf()
     public var value: E? = null
@@ -27,6 +26,7 @@ class Publisher<E> {
     private var hasFirstValue = false
 
     //осуществляем подписку на изменеия
+    //передаем handler указывая в каком потоке мы работаем
     fun subscribe(handler: Handler, callback: (E?)->Unit) {
         val subscriber = Subscriber(handler, callback)
         subscribers.add(subscriber)

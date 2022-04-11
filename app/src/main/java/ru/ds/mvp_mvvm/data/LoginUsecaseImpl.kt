@@ -1,6 +1,5 @@
 package ru.ds.mvp_mvvm.data
 
-import android.os.Handler
 import ru.ds.mvp_mvvm.domain.LoginApp
 import ru.ds.mvp_mvvm.domain.LoginUseCase
 
