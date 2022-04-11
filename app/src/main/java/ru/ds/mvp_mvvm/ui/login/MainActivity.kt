@@ -13,8 +13,10 @@ import androidx.appcompat.app.AppCompatActivity
 import ru.ds.mvp_mvvm.R
 import ru.ds.mvp_mvvm.app
 import ru.ds.mvp_mvvm.databinding.ActivityMainBinding
-import ru.ds.mvp_mvvm.utils.Constants
 
+
+const val SHOW_SYMBOL = "Show"
+const val HIDE_SYMBOL = "Hide"
 
 class MainActivity : AppCompatActivity() {
 
@@ -104,11 +106,11 @@ class MainActivity : AppCompatActivity() {
             if (binding.showHideBtn.text.toString().equals("Show")) {
                 binding.passwordEditText.transformationMethod =
                     HideReturnsTransformationMethod.getInstance()
-                binding.showHideBtn.text = Constants.HIDE_SYMBOL
+                binding.showHideBtn.text = HIDE_SYMBOL
             } else {
                 binding.passwordEditText.transformationMethod =
                     PasswordTransformationMethod.getInstance()
-                binding.showHideBtn.text = Constants.SHOW_SYMBOL
+                binding.showHideBtn.text = SHOW_SYMBOL
             }
         }
     }

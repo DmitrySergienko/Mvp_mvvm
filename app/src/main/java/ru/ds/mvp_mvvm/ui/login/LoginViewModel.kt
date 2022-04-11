@@ -2,12 +2,10 @@ package ru.ds.mvp_mvvm.ui.login
 
 import androidx.annotation.MainThread
 import ru.ds.mvp_mvvm.domain.LoginUseCase
-import ru.ds.mvp_mvvm.utils.Constants
 import ru.ds.mvp_mvvm.utils.Publisher
 
 const val WRONG_PASSWORD = "Wrong Password"
-const val SHOW_SYMBOL = "Show"
-const val HIDE_SYMBOL = "Hide"
+
 
 class LoginViewModel(
     private val loginUseCase: LoginUseCase
