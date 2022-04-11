@@ -2,7 +2,7 @@ package ru.ds.mvp_mvvm.ui.login
 
 import androidx.annotation.MainThread
 
-class LoginContract {
+interface LoginContract {
 
     interface View {
         @MainThread

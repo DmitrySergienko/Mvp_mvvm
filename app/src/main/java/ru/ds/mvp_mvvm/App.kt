@@ -5,7 +5,7 @@ import android.content.Context
 import android.os.Handler
 import android.os.Looper
 import ru.ds.mvp_mvvm.data.LoginUsecaseImpl
-import ru.ds.mvp_mvvm.data.MockLoginApiImpl
+import ru.ds.mvp_mvvm.data.api.MockLoginApiImpl
 import ru.ds.mvp_mvvm.domain.LoginApp
 import ru.ds.mvp_mvvm.domain.LoginUseCase
 
