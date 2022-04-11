@@ -13,7 +13,7 @@ class App : Application() {
 //by lazy (не создается сразу, толко при обращении)
     private val loginApp: LoginApp by lazy { MockLoginApiImpl() }
     val loginUseCase: LoginUseCase by lazy {
-        LoginUsecaseImpl(app.loginApp, Handler(Looper.getMainLooper())) }
+        LoginUsecaseImpl(app.loginApp) }
 
 }
 val Context.app: App
