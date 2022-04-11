@@ -24,7 +24,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/enterLogin"
-            android:inputType="textPassword"
             android:singleLine="true"
             android:textAlignment="center"
             app:layout_constraintBottom_toTopOf="@+id/guidelineThree"
