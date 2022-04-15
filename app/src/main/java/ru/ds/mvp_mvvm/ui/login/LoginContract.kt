@@ -1,6 +1,7 @@
 package ru.ds.mvp_mvvm.ui.login
 
 import androidx.annotation.MainThread
+import io.reactivex.rxjava3.core.Observable
 import ru.ds.mvp_mvvm.utils.Publisher
 
 /**
@@ -37,7 +38,7 @@ interface LoginContract {
 
     interface ViewModel {
 
-        val shouldShowProgress: Publisher<Boolean>
+        val shouldShowProgress: Observable<Boolean>
         val isSuccess: Publisher<Boolean>
         val errorText: Publisher<String?>
 

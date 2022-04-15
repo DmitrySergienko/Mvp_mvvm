@@ -10,6 +10,8 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.disposables.CompositeDisposable
 import ru.ds.mvp_mvvm.R
 import ru.ds.mvp_mvvm.app
 import ru.ds.mvp_mvvm.databinding.ActivityMainBinding
@@ -23,10 +25,13 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private var viewModel: LoginContract.ViewModel? = null
     private val handler: Handler by lazy { Handler(Looper.getMainLooper()) }
+    private lateinit var compositdisposable: CompositeDisposable
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        compositdisposable = CompositeDisposable()
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         viewModel = restoreViewModel()
@@ -40,15 +45,20 @@ class MainActivity : AppCompatActivity() {
             )
         }
 
-        viewModel?.shouldShowProgress?.subscribe(handler) { shouldShow ->
-            if (shouldShow == true) {
-                binding.loginButton.isEnabled = false
-                hideKeyboard(this)
-                binding.progressLoadingLayout.visibility = View.VISIBLE
-            } else {
-                binding.loginButton.isEnabled = true
-                binding.progressLoadingLayout.visibility = View.GONE
-            }
+        viewModel?.let {
+            compositdisposable.add(
+                it.shouldShowProgress
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe { shouldShow ->
+                    if (shouldShow == true) {
+                        binding.loginButton.isEnabled = false
+                        hideKeyboard(this)
+                        binding.progressLoadingLayout.visibility = View.VISIBLE
+                    } else {
+                        binding.loginButton.isEnabled = true
+                        binding.progressLoadingLayout.visibility = View.GONE
+                    }
+                })
         }
 
         viewModel?.isSuccess?.subscribe(handler) {
@@ -131,6 +141,7 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
         viewModel?.isSuccess?.unsubscribeAll()
         viewModel?.errorText?.unsubscribeAll()
-        viewModel?.shouldShowProgress?.unsubscribeAll()
+        compositdisposable.dispose()
+
     }
 }

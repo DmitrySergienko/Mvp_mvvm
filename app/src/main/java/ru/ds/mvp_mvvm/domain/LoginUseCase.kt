@@ -1,11 +1,12 @@
 package ru.ds.mvp_mvvm.domain
 
 import androidx.annotation.MainThread
+import io.reactivex.rxjava3.core.Observable
 
 interface LoginUseCase {
     fun login(
         login: String,
         password: String,
-        @MainThread callback: (Boolean) -> Unit
-    )
+        //@MainThread callback: (Boolean) -> Unit
+    ): Observable<Boolean>
 }
