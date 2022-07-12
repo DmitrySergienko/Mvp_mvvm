@@ -12,7 +12,7 @@
 
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelineThree"
+            android:id="@+id/guide_line_Three"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
@@ -26,13 +26,13 @@
             android:hint="@string/enterLogin"
             android:singleLine="true"
             android:textAlignment="center"
-            app:layout_constraintBottom_toTopOf="@+id/guidelineThree"
+            app:layout_constraintBottom_toTopOf="@+id/guide_line_Three"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guidelineThree" />
+            app:layout_constraintTop_toTopOf="@+id/guide_line_Three" />
 
         <EditText
-            android:id="@+id/passwordEditText"
+            android:id="@+id/password_Edit_Text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/marginTopTextView"
@@ -48,7 +48,7 @@
             app:layout_constraintTop_toBottomOf="@+id/loginEditText" />
 
         <Button
-            android:id="@+id/showHideBtn"
+            android:id="@+id/show_Hide_Btn"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -67,10 +67,10 @@
             android:text="@string/enter"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
+            app:layout_constraintTop_toBottomOf="@+id/password_Edit_Text" />
 
         <FrameLayout
-            android:id="@+id/progressLoadingLayout"
+            android:id="@+id/progress_Loading_Layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/loadingBackground"
